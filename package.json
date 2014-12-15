@@ -1,8 +1,8 @@
 {
-  "name": "qs",
+  "name": "qs-papandreou",
   "version": "2.3.3",
   "description": "A querystring parser that supports nesting and arrays, with a depth limit",
-  "homepage": "https://github.com/hapijs/qs",
+  "homepage": "https://github.com/papandreou/qs",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hapijs/qs.git"
+    "url": "https://github.com/papandreou/qs.git"
   },
   "keywords": [
     "querystring",
