@@ -456,4 +456,9 @@ describe('parse()', function () {
         expect(Qs.parse('foo=%26%239786%3B', {charset: 'utf-8', interpretNumericEntities: true})).to.deep.equal({ foo: '&#9786;' });
         done();
     });
+
+    it('should support the extra windows-1252 chars when the charset is iso-8859-1', function (done) {
+        expect(Qs.parse('foo=%81%92%93%92%94', {charset: 'iso-8859-1'})).to.deep.equal({ foo: '’“’”' });
+        done();
+    });
 });
