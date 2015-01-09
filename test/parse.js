@@ -607,5 +607,20 @@ test('parse()', function (t) {
         st.end();
     });
 
+    t.test('interprets numeric entities in iso-8859-1 when the interpretNumericEntities option is given', function (st) {
+        st.deepEqual(qs.parse('foo=%26%239786%3B', { charset: 'iso-8859-1', interpretNumericEntities: true }), { foo: '☺' });
+        st.end();
+    });
+
+    t.test('does not interpret numeric entities in iso-8859-1 when the interpretNumericEntities option is not given', function (st) {
+        st.deepEqual(qs.parse('foo=%26%239786%3B', { charset: 'iso-8859-1' }), { foo: '&#9786;' });
+        st.end();
+    });
+
+    t.test('does not interpret numeric entities when the charset is utf-8, even when the interpretNumericEntities option is given', function (st) {
+        st.deepEqual(qs.parse('foo=%26%239786%3B', { charset: 'utf-8', interpretNumericEntities: true }), { foo: '&#9786;' });
+        st.end();
+    });
+
     t.end();
 });
